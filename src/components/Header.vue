@@ -10,12 +10,22 @@
       <!-- Navegación -->
       <nav class="nav">
         <router-link to="/" class="nav-link">Inicio</router-link>
-        <router-link to="/secciones" class="nav-link">Secciones</router-link>
-        <router-link to="/quienes-somos" class="nav-link">Quiénes Somos</router-link>
-        <router-link to="/apuntate" class="nav-link">Apúnate</router-link>
+        <router-link to="/secciones" class="nav-link">Grupo</router-link>
         <router-link to="/noticias" class="nav-link">Noticias</router-link>
+        <router-link to="/apuntate" class="nav-link">Únete</router-link>
         <router-link to="/contacto" class="nav-link">Contacto</router-link>
       </nav>
+
+      <div class="social-links">
+        <a href="https://www.facebook.com/415scouts" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+          <span class="social-icon facebook"></span>
+        </a>
+        <a href="https://instagram.com/losolivos415" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <span class="social-icon instagram"></span>
+        </a>
+      </div>
+
+
     </div>
   </header>
 </template>
