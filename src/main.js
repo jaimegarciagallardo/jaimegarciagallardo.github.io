@@ -1,6 +1,9 @@
-import './assets/css/main.css'
-
+// src/main.js
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router' // Importa el enrutador
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.use(router) // Registra el enrutador en la app
+app.mount('#app')
