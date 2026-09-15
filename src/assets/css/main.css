@@ -1,0 +1,23 @@
+:root {
+  /* Paleta de Colores */
+  --color-burgundy: #6b1d2f;         /* Burdeos principal */
+  --color-burgundy-hover: #85253c;   /* Burdeos un poco más claro para hovers */
+  --color-bone: #efe8d9;             /* Blanco Hueso */
+  --color-bone-dark: #eae4d9;        /* Hueso un poco más oscuro para sombras o bordes */
+  --color-text-dark: #2b2325;        /* Texto oscuro para fondo hueso */
+  --color-text-light: #f7f4ef;       /* Texto claro para fondo burdeos */
+}
+
+/* Reset básico y fondo general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bone);
+  color: var(--color-text-dark);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+}
