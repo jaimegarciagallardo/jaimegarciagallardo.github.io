@@ -1,0 +1,149 @@
+/* src/assets/css/contact.css */
+
+.contact-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+/* Encabezado */
+.contact-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.contact-header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: var(--color-text-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.divider {
+    width: 45px;
+    height: 4px;
+    background-color: var(--color-burgundy);
+    margin: 0.8rem auto 1.2rem auto;
+}
+
+.subtitle {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--color-text-dark);
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+/* Tarjeta Principal Dividida */
+.contact-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+}
+
+/* Panel Izquierdo */
+.info-panel {
+    background-color: var(--color-burgundy);
+    color: var(--color-bone);
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 1.5rem;
+    width: 100%;
+}
+
+.info-item {
+    text-align: center;
+    user-select: none;
+}
+
+.icon-box {
+    width: 54px;
+    height: 54px;
+    border: 1px solid var(--color-bone);
+    margin: 0 auto 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-bone);
+}
+
+/* Iconos recortados mediante máscaras SVG */
+.location-icon {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/></svg>") no-repeat center / contain;
+}
+
+.email-icon {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>") no-repeat center / contain;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/></svg>") no-repeat center / contain;
+}
+
+.phone-icon {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/></svg>") no-repeat center / contain;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/></svg>") no-repeat center / contain;
+}
+
+.info-icon {
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/></svg>") no-repeat center / contain;
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/></svg>") no-repeat center / contain;
+}
+
+.info-item h3 {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+
+.info-item p,
+.info-item a {
+    font-size: 0.9rem;
+    color: var(--color-bone);
+    line-height: 1.4;
+    text-decoration: none;
+    opacity: 0.9;
+}
+
+.info-item a:hover {
+    text-decoration: underline;
+}
+
+/* Panel Derecho (Mapa) */
+.map-panel {
+    width: 100%;
+    min-height: 350px;
+}
+
+/* Adaptación para pantallas móviles */
+@media (max-width: 850px) {
+    .contact-card {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .map-panel {
+        height: 350px;
+    }
+}
