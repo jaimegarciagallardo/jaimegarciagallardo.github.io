@@ -47,6 +47,10 @@
     gap: 0.5rem;
 }
 
+.nav-item.dropdown {
+    position: relative;
+}
+
 .nav-link {
     color: var(--color-bone);
     text-decoration: none;
@@ -59,6 +63,10 @@
     cursor: pointer;
     user-select: none;
 
+    display: flex;          /* Esta es la parte para el desplegable */
+    align-items: center;
+    gap: 0.4rem;
+
 }
 
 .nav-link:hover,
@@ -66,6 +74,65 @@
     background-color: var(--color-bone);
     color: var(--color-burgundy);
 }
+
+.arrow {
+    font-size: 0.75rem;
+    transition: transform 0.25s ease;
+}
+
+.nav-item.dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* Menú Desplegable */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-burgundy);
+    border: 1px solid var(--color-bone);
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+
+    /* Transición de aparición suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Opciones del menú */
+.dropdown-item {
+    color: var(--color-bone);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid rgba(247, 244, 239, 0.15);
+}
+
+.dropdown-item:hover,
+.dropdown-item.router-link-exact-active {
+    background-color: var(--color-bone);
+    color: var(--color-burgundy);
+}
+
 
 /* Redes Sociales flotantes en la esquina superior derecha */
 .social-links {
