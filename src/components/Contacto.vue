@@ -71,7 +71,6 @@
     </div>
   </div>
 
-  <!-- Añadir al final de src/views/ContactView.vue -->
   <section class="join-section">
     <div class="join-container">
       <h2>¿QUIERES UNIRTE AL GRUPO?</h2>
@@ -79,34 +78,129 @@
       <p>Déjanos tus datos y nos pondremos en contacto contigo para informarte sobre el proceso de inscripción.</p>
 
       <form @submit.prevent="handleJoinSubmit" class="join-form">
-        <div class="form-row">
-          <input type="text" placeholder="Nombre del educando" required class="custom-input" />
-        </div>
-        <div class="form-row">
-          <input type="text" placeholder="Nombre del tutor" required class="custom-input" />
-        </div>
-        <div class="form-row">
-          <input type="email" placeholder="Correo electrónico" required class="custom-input" />
-        </div>
-        <div class="form-row">
-          <input type="tel" placeholder="Teléfono de contacto" required class="custom-input" />
-        </div>
-        <div class="form-row">
-          <input type="number" placeholder="Año de nacimiento" required class="custom-input"
-                  min="1900" max="2026"/>
+        <div class="form-group">
+          <input
+              v-model="formData.nombreEducando"
+              type="text"
+              placeholder="Nombre del educando / participante"
+              required
+              class="custom-input"
+          />
         </div>
 
+        <div class="form-group">
+          <input
+              v-model="formData.nombreTutor"
+              type="text"
+              placeholder="Nombre del tutor/a"
+              class="custom-input"
+          />
+        </div>
 
-        <textarea placeholder="Mensaje o dudas adicionales..." rows="3" class="custom-input custom-textarea"></textarea>
+        <div class="form-group">
+          <input
+              v-model="formData.anoNacimiento"
+              type="number"
+              placeholder="Año de nacimiento (ej. 2014)"
+              min="1900"
+              max="2026"
+              required
+              class="custom-input"
+          />
+        </div>
 
-        <button type="submit" class="submit-btn">SOLICITAR PLAZA</button>
+        <div class="form-group">
+          <input
+              v-model="formData.telefono"
+              type="tel"
+              placeholder="Teléfono de contacto"
+              required
+              class="custom-input"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+              v-model="formData.email"
+              type="email"
+              placeholder="Correo electrónico de contacto"
+              required
+              class="custom-input"
+          />
+        </div>
+
+        <div class="form-group">
+        <textarea
+            v-model="formData.mensaje"
+            placeholder="Mensaje o dudas adicionales..."
+            rows="3"
+            class="custom-input custom-textarea"
+        ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" :disabled="isSubmitting">
+          {{ isSubmitting ? 'ENVIANDO...' : 'SOLICITAR PLAZA' }}
+        </button>
+
+        <p v-if="feedbackMessage" :class="['feedback-status', feedbackType]">
+          {{ feedbackMessage }}
+        </p>
       </form>
     </div>
   </section>
-
 </template>
 
 <script setup>
+  import { ref } from 'vue'
+
+  // Reemplaza esta URL por la que copiaste de Google Apps Script
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCRZR69UM1husQWIFuXs2zJPuCflpogIvFQEa5d-np4bKe9EvO9JGZfDKRoN7eJfhPWQ/exec'
+
+  const formData = ref({
+    nombreEducando: '',
+    nombreTutor: '',
+    anoNacimiento: '',
+    telefono: '',
+    email: '',
+    mensaje: ''
+  })
+
+  const isSubmitting = ref(false)
+  const feedbackMessage = ref('')
+  const feedbackType = ref('')
+
+  const handleJoinSubmit = async () => {
+    isSubmitting.value = true
+    feedbackMessage.value = ''
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData.value)
+      })
+
+      feedbackType.value = 'success'
+      feedbackMessage.value = '¡Solicitud enviada con éxito! Nos pondremos en contacto muy pronto.'
+
+      formData.value = {
+        nombreEducando: '',
+        nombreTutor: '',
+        anoNacimiento: '',
+        telefono: '',
+        email: '',
+        mensaje: ''
+      }
+    } catch (error) {
+      feedbackType.value = 'error'
+      feedbackMessage.value = 'Hubo un error al enviar la solicitud. Inténtalo de nuevo.'
+    } finally {
+      isSubmitting.value = false
+    }
+  }
 </script>
 
 <style scoped src="../assets/css/contacto.css"></style>
