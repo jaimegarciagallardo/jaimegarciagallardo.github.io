@@ -70,6 +70,40 @@
       </div>
     </div>
   </div>
+
+  <!-- Añadir al final de src/views/ContactView.vue -->
+  <section class="join-section">
+    <div class="join-container">
+      <h2>¿QUIERES UNIRTE AL GRUPO?</h2>
+      <div class="divider-light"></div>
+      <p>Déjanos tus datos y nos pondremos en contacto contigo para informarte sobre el proceso de inscripción.</p>
+
+      <form @submit.prevent="handleJoinSubmit" class="join-form">
+        <div class="form-row">
+          <input type="text" placeholder="Nombre del educando" required class="custom-input" />
+        </div>
+        <div class="form-row">
+          <input type="text" placeholder="Nombre del tutor" required class="custom-input" />
+        </div>
+        <div class="form-row">
+          <input type="email" placeholder="Correo electrónico" required class="custom-input" />
+        </div>
+        <div class="form-row">
+          <input type="tel" placeholder="Teléfono de contacto" required class="custom-input" />
+        </div>
+        <div class="form-row">
+          <input type="number" placeholder="Año de nacimiento" required class="custom-input"
+                  min="1900" max="2026"/>
+        </div>
+
+
+        <textarea placeholder="Mensaje o dudas adicionales..." rows="3" class="custom-input custom-textarea"></textarea>
+
+        <button type="submit" class="submit-btn">SOLICITAR PLAZA</button>
+      </form>
+    </div>
+  </section>
+
 </template>
 
 <script setup>
