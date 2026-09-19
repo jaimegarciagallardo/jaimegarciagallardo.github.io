@@ -147,3 +147,155 @@
         height: 350px;
     }
 }
+
+
+/* Añadir a src/assets/css/contact.css */
+
+.join-section {
+    margin-top: 4rem;
+    background-color: var(--color-burgundy);
+    color: var(--color-bone);
+    padding: 3.5rem 2rem;
+    border-radius: 0;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.join-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.join-container h2 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.divider-light {
+    width: 45px;
+    height: 3px;
+    background-color: var(--color-bone);
+    margin: 0.8rem auto 1.2rem auto;
+}
+
+.join-container p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--color-bone);
+    color: var(--color-bone);
+    font-size: 0.95rem;
+    border-radius: 0;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.custom-input::placeholder {
+    color: rgba(247, 244, 239, 0.6);
+}
+
+.custom-input:focus {
+    background-color: rgba(247, 244, 239, 0.1);
+}
+
+.custom-select option {
+    background-color: var(--color-burgundy);
+    color: var(--color-bone);
+}
+
+.custom-textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    align-self: center;
+    padding: 0.9rem 2.5rem;
+    background-color: var(--color-bone);
+    color: var(--color-burgundy);
+    border: 1px solid var(--color-bone);
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+    background-color: transparent;
+    color: var(--color-bone);
+}
+
+@media (max-width: 650px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Añadir a src/assets/css/contact.css */
+
+.form-row.full-width {
+    grid-template-columns: 1fr;
+}
+
+.form-row.full-width {
+    grid-template-columns: 1fr;
+}
+
+/* Ocultar flechas del input number para mantener estética limpia */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* src/assets/css/contact.css */
+
+.feedback-status {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 0;
+    text-align: center;
+}
+
+.feedback-status.success {
+    background-color: rgba(247, 244, 239, 0.15);
+    color: var(--color-bone);
+    border: 1px solid var(--color-bone);
+}
+
+.feedback-status.error {
+    background-color: rgba(217, 83, 79, 0.2);
+    color: #ffb3b3;
+    border: 1px solid #d9534f;
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

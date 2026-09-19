@@ -9,11 +9,25 @@
 
       <!-- Navegación -->
       <nav class="nav">
-        <router-link to="/" class="nav-link">Inicio</router-link>
-        <router-link to="/secciones" class="nav-link">Grupo</router-link>
-        <router-link to="/noticias" class="nav-link">Noticias</router-link>
-        <router-link to="/apuntate" class="nav-link">Únete</router-link>
-        <router-link to="/contacto" class="nav-link">Contacto</router-link>
+        <router-link to="/" class="nav-link">INICIO</router-link>
+
+        <!-- Botón desplegable Grupo -->
+        <div class="nav-item dropdown">
+          <router-link to="/quienes-somos" class="nav-link dropdown-toggle">
+            ¿QUIENES SOMOS?<span class="arrow">▾</span>
+          </router-link>
+          <div class="dropdown-menu">
+            <router-link to="/quienes-somos/colonia" class="dropdown-item">Colonia</router-link>
+            <router-link to="/quienes-somos/manada" class="dropdown-item">Manada</router-link>
+            <router-link to="/quienes-somos/seccion-scout" class="dropdown-item">Sección Scout</router-link>
+            <router-link to="/quienes-somos/unidad" class="dropdown-item">Unidad</router-link>
+            <router-link to="/quienes-somos/clan" class="dropdown-item">Clan</router-link>
+          </div>
+        </div>
+
+        <router-link to="/noticias" class="nav-link">NOTICIAS</router-link>
+        <router-link to="/revistas" class="nav-link">REVISTAS</router-link>
+        <router-link to="/contacto" class="nav-link">CONTACTO</router-link>
       </nav>
 
       <div class="social-links">
