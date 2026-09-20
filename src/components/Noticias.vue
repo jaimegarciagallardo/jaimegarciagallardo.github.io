@@ -4,9 +4,10 @@
 
     <div class="cascada-grid">
       <article
-          v-for="(noticia, index) in noticias.slice(0, 5)"
+          v-for="(noticia, index) in noticias.slice(0, 11)"
           :key="noticia.id"
           :class="['noticia-card', `card-${index + 1}`]"
+          @click="irANoticia(noticia.id)"
       >
         <div class="imagen-wrapper">
           <img :src="noticia.imagen" :alt="noticia.titulo" loading="lazy" />
@@ -17,7 +18,7 @@
           <span class="fecha">{{ noticia.fecha }}</span>
           <h3 class="titulo">{{ noticia.titulo }}</h3>
           <p class="resumen">{{ noticia.resumen }}</p>
-          <a :href="noticia.url" class="leer-mas">Leer más →</a>
+          <span class="leer-mas">Leer más →</span>
         </div>
       </article>
     </div>
@@ -26,55 +27,16 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { noticiasDict } from '../data/noticias';
 
-// Array con las 5 noticias de ejemplo
-const noticias = ref([
-  {
-    id: 1,
-    titulo: "Inicio de ronda y pase de secciones",
-    resumen: "Nuevos materiales prometen duplicar la capacidad de los vehículos eléctricos sin aumentar su peso ni coste de producción.",
-    categoria: "Tecnología",
-    fecha: "17 Sep, 2026",
-    imagen: "https://picsum.photos/800/600?random=1",
-    url: "#"
-  },
-  {
-    id: 2,
-    titulo: "El avance del diseño web en 2026",
-    resumen: "Las tendencias actuales se centran en la accesibilidad y layouts asimétricos tipo cascada.",
-    categoria: "Diseño",
-    fecha: "16 Sep, 2026",
-    imagen: "https://picsum.photos/600/800?random=2",
-    url: "#"
-  },
-  {
-    id: 3,
-    titulo: "Mercados globales muestran estabilidad",
-    resumen: "Un breve resumen del panorama económico actual y sus implicaciones a corto plazo.",
-    categoria: "Economía",
-    fecha: "15 Sep, 2026",
-    imagen: "https://picsum.photos/600/500?random=3",
-    url: "#"
-  },
-  {
-    id: 4,
-    titulo: "Consejos para mejorar la productividad en remoto",
-    resumen: "Estrategias probadas para organizar tu jornada laboral y evitar el desgaste mental.",
-    categoria: "Estilo de vida",
-    fecha: "14 Sep, 2026",
-    imagen: "https://picsum.photos/600/700?random=4",
-    url: "#"
-  },
-  {
-    id: 5,
-    titulo: "Exploración espacial alcanza un nuevo hito",
-    resumen: "La última misión orbital envía datos inéditos sobre la composición atmosférica del planeta vecino.",
-    categoria: "Ciencia",
-    fecha: "13 Sep, 2026",
-    imagen: "https://picsum.photos/700/500?random=5",
-    url: "#"
-  }
-]);
+const router = useRouter();
+const noticias = ref(noticiasDict);
+
+const irANoticia = (id) => {
+  router.push(`/noticias/${id}`);
+}
+
 </script>
 
 <!-- Importamos el archivo CSS externo -->
