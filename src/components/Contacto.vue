@@ -31,8 +31,7 @@
             </div>
             <h3>EMAIL</h3>
             <p>
-              <a href="mailto:415@scoutsdeandalucia.org">415@scoutsdeandalucia.org</a><br />
-              <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a>
+              <a href="mailto:415@scoutsdeandalucia.org">415@scoutsdeandalucia.org</a>
             </p>
           </div>
 
@@ -42,7 +41,7 @@
               <span class="icon phone-icon"></span>
             </div>
             <h3>LLÁMANOS</h3>
-            <p>+34 642 53 28 58<br />+34 600 000 000</p>
+            <p>+34 642 53 28 58</p>
           </div>
 
           <!-- Información Adicional -->
@@ -138,13 +137,41 @@
         ></textarea>
         </div>
 
-        <button type="submit" class="submit-btn" :disabled="isSubmitting">
-          {{ isSubmitting ? 'ENVIANDO...' : 'SOLICITAR PLAZA' }}
-        </button>
+        <!-- Casilla legal obligatoria -->
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label">
+            <input
+                v-model="formData.aceptaTerminos"
+                type="checkbox"
+                class="custom-checkbox"
+            />
+            <span class="checkbox-text">
+              Declaro ser mayor de edad o actuar como tutor legal del menor a inscribir, y acepto el tratamiento de datos según la
+              <router-link to="/politica-privacidad" target="_blank" class="legal-link">
+                política de privacidad
+              </router-link>.
+            </span>
+          </label>
+        </div>
+
+        <!-- Primera capa de información sobre privacidad -->
+        <div class="privacy-layer">
+          <div class="privacy-text">
+            El Grupo Scout 415 Los Olivos tratará estos datos exclusivamente para gestionar la preinscripción
+            y no los cederá a terceros. Puedes conocer cómo ejercer tus derechos y más detalles en nuestra
+            <router-link to="/politica-privacidad" target="_blank" class="legal-link">
+              Política de Privacidad
+            </router-link>.
+          </div>
+        </div>
 
         <p v-if="feedbackMessage" :class="['feedback-status', feedbackType]">
           {{ feedbackMessage }}
         </p>
+
+        <button type="submit" class="submit-btn" :disabled="isSubmitting">
+          {{ isSubmitting ? 'ENVIANDO...' : 'SOLICITAR PLAZA' }}
+        </button>
       </form>
     </div>
   </section>
@@ -170,6 +197,13 @@
   const feedbackType = ref('')
 
   const handleJoinSubmit = async () => {
+
+    if (!formData.value.aceptaTerminos) {
+      feedbackType.value = 'error'
+      feedbackMessage.value = '⚠️ Por favor, confirma que eres mayor de edad o tutor/a legal y acepta la política de privacidad.'
+      return
+    }
+
     isSubmitting.value = true
     feedbackMessage.value = ''
 

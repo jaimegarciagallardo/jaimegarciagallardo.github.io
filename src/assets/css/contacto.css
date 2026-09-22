@@ -299,3 +299,70 @@ input[type="number"] {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+.checkbox-group {
+    margin: 0.5rem 0 0.8rem 0;
+    text-align: left;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.custom-checkbox {
+    accent-color: var(--color-bone);
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    border-radius: 0; /* Mantiene estética sin bordes redondeados */
+    flex-shrink: 0;
+}
+
+.checkbox-text {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--color-bone);
+    opacity: 0.9;
+}
+
+.legal-link {
+    color: var(--color-bone);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.legal-link:hover {
+    opacity: 0.75;
+}
+
+/* Añadir a src/assets/css/contact.css */
+
+.privacy-layer {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(247, 244, 239, 0.05); /* Fondo hueso ultra sutil */
+    border: 1px solid rgba(247, 244, 239, 0.2);  /* Borde fino y discreto */
+    padding: 0.85rem 1rem;
+    margin-top: 0.3rem;
+    text-align: left;
+    border-radius: 0;
+}
+
+.privacy-text {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--color-bone);
+    opacity: 0.82;
+    margin: 0;
+}
+
+.privacy-text strong {
+    font-weight: 600;
+    opacity: 0.85;
+}

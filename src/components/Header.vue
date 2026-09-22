@@ -22,6 +22,7 @@
             <router-link to="/quienes-somos/seccion-scout" class="dropdown-item">Sección Scout</router-link>
             <router-link to="/quienes-somos/unidad" class="dropdown-item">Unidad</router-link>
             <router-link to="/quienes-somos/clan" class="dropdown-item">Clan</router-link>
+            <router-link to="/quienes-somos/ejecutiva" class="dropdown-item">Ejecutiva</router-link>
           </div>
         </div>
 
