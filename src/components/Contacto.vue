@@ -58,6 +58,7 @@
       <!-- Widget de Google Maps (Derecha) -->
       <div class="map-panel">
         <iframe
+            v-if="hasConsent"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.502143764898!2d-4.469451624953917!3d36.73451637140072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f7244b9eec49%3A0xf7abeb1013ca9900!2sColegio%20Los%20Olivos.%20PP.%20Agustinos.!5e0!3m2!1ses!2ses!4v1789574554209!5m2!1ses!2ses"
             width="600"
             height="470"
@@ -66,6 +67,13 @@
             loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
+        <div v-else class="map-blocked">
+          <p>Para visualizar este mapa es necesario aceptar las cookies de Google Maps.</p>
+          <button @click="acceptConsent" class="btn-accept">
+            Aceptar y ver mapa
+          </button>
+        </div>
+
       </div>
     </div>
   </div>
@@ -178,10 +186,23 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue'
+import {onMounted, ref} from 'vue'
 
   // Reemplaza esta URL por la que copiaste de Google Apps Script
+  const hasConsent = ref(false)
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCRZR69UM1husQWIFuXs2zJPuCflpogIvFQEa5d-np4bKe9EvO9JGZfDKRoN7eJfhPWQ/exec'
+
+  onMounted(() => {
+    const savedConsent = localStorage.getItem('cookie_consent_maps')
+    if (savedConsent === 'true') {
+      hasConsent.value = true
+    }
+  })
+  const acceptConsent = () => {
+    hasConsent.value = true
+    localStorage.setItem('cookie_consent_maps', 'true')
+  }
+
 
   const formData = ref({
     nombreEducando: '',

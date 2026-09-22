@@ -366,3 +366,21 @@ input[type="number"] {
     font-weight: 600;
     opacity: 0.85;
 }
+
+.map-blocked {
+     background-color: #f3f4f6;
+     border: 1px dashed #cbd5e1;
+     padding: 2rem;
+     text-align: center;
+     border-radius: 8px;
+ }
+
+.btn-accept {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
